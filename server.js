@@ -1,4 +1,7 @@
-const express = require('express');
+const express = require('express')
+const path = require('path')
+const PORT = process.env.PORT || 5000
+
 let mongoose = require('mongoose');
 
 let app = express();
@@ -31,7 +34,8 @@ app.use(express.urlencoded({
 
 // for parsing multipart/form-data
 app.use(upload.array());
-app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')))
 app.get('/', async (req, res) => {
 
     try {
@@ -48,10 +52,10 @@ app.get('/', async (req, res) => {
         res.status(500).send(error);
     }
 });
+app.use(express.static(path.join(__dirname, 'public')))
+
 app.use(studentRouter);
 app.use(productRouter);
 app.use(quoteRouter);
 
-app.listen(5000, () => {
-    console.log("The server started at port no - 5000");
-});
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))

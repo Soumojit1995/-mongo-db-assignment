@@ -5,9 +5,9 @@
   "engines": {
     "node": "16.x"
   },
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon server.js",
     "test": "node test.js"
   },
   "dependencies": {
