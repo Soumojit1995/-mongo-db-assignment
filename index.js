@@ -1,4 +1,13 @@
-const express = require('express');
+const express = require('express')
+const path = require('path')
+const PORT = process.env.PORT || 5000
+
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .get('/', (req, res) => res.render('pages/index'))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 let mongoose = require('mongoose');
 
 let app = express();
@@ -32,22 +41,22 @@ app.use(express.urlencoded({
 // for parsing multipart/form-data
 app.use(upload.array());
 app.use(express.static('public'));
-app.get('/', async (req, res) => {
+// app.get('/', async (req, res) => {
 
-  try {
-    let response;
-    response = {
-      'result': "Api Connected"
-    };
-    res.send(response);
+//   try {
+//     let response;
+//     response = {
+//       'result': "Api Connected"
+//     };
+//     res.send(response);
 
-  } catch (err) {
-    error = {
-      'error': 'Unable to save'
-    }
-    res.status(500).send(error);
-  }
-});
+//   } catch (err) {
+//     error = {
+//       'error': 'Unable to save'
+//     }
+//     res.status(500).send(error);
+//   }
+// });
 app.use(studentRouter);
 app.use(productRouter);
 app.use(quoteRouter);
