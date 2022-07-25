@@ -1,39 +1,100 @@
-# node-js-getting-started
+MongoDB Assignment
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+https://drive.google.com/file/d/1ueXfXNANr1cJIzv-UBvE6-wYwfG46CME/view
 
-This application supports the [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
 
-## Running Locally
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
 
-```sh
-$ git clone https://github.com/heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
+Problem 1:
+1.1
+Method - POST
+url - https://mongodbassignment.herokuapp.com/student/add
+Request - Body (JSON)
+{
+    "studentFirstName":"Soumojit Sadhukhan",
+    "collegeName": "ABC- college",
+    "location": "Kolkata"
+}
+Response - 
+{
+    "result": "Success"
+}
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+1.2
+Method - GET
+url - https://mongodbassignment.herokuapp.com/student/getStudentDetails?name=Soumojit
 
-## Deploying to Heroku
+Response -
+{
+    "name": "Soumojit",
+    "collegeName": "ABC",
+    "location": "Kolkata"
+}
 
-```
-$ heroku create
-$ git push heroku main
-$ heroku open
-```
-or
+Problem 2:
+2.1
+Method - POST
+url - https://mongodbassignment.herokuapp.com/quote/add
+Request - Body (JSON)
+{
+    "quote":"Get busy living or get busy dying.",
+    "author": "Stephen King"
+}
+Response - 
+{
+    "result": "Success"
+}
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+2.2
+Method - GET
+url - https://mongodbassignment.herokuapp.com/quote/getAll
 
-## Documentation
+Response -
+[
+    {
+        "quote": "Get busy living or get busy dying.",
+        "author": "Stephen King"
+    },
+    {
+        "quote": "The purpose of our lives is to be happy.",
+        "author": " Dalai Lama"
+    },
+    {
+        "quote": "Life is what happens when you're busy making other plans.",
+        "author": "John Lennon"
+    }
+]
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
+Problem 3:
+3.1
+Method - POST
+url - https://mongodbassignment.herokuapp.com/product/add
+Request - Body (JSON)
+{
+    "productName":"Redmi - 9",
+    "price": 9999
+}
+Response - 
+{
+    "result": "Success"
+}
 
-- [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+3.2
+Method - GET
+url - https://mongodbassignment.herokuapp.com/product/getAll
+
+Response -
+[
+    {
+        "productName": "Redmi - 9",
+        "price": 9999
+    },
+    {
+        "productName": "Redmi - 10",
+        "price": 19999
+    },
+    {
+        "productName": "Redmi - 8",
+        "price": 14999
+    }
+]
